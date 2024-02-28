@@ -13,6 +13,7 @@ class_names = open("labels.txt", "r").readlines()
 
 # CAMERA can be 0 or 1 based on default camera of your computer
 camera = cv2.VideoCapture(0)
+# camera = cv2.VideoCapture('http://192.168.1.62:4747/video')
 
 def image_detector():
     # Grab the webcamera's image.
@@ -33,7 +34,7 @@ def image_detector():
     # Predicts the model
     prediction = model.predict(image)
     index = np.argmax(prediction)
-    class_name = class_names[index]
+    class_name = class_names[index].strip()
     confidence_score = prediction[0][index]
 
     # Print prediction and confidence score
