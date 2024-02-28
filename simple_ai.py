@@ -11,8 +11,8 @@ model = load_model("keras_model.h5", compile=False)
 # Load the labels
 class_names = open("labels.txt", "r").readlines()
 
-# CAMERA can be 0 or 1 based on default camera of your computer
-camera = cv2.VideoCapture(0)
+# CAMERA from phone through Droicam
+camera = cv2.VideoCapture('http://192.168.1.62:4747/video')
 
 def image_detector():
     # Grab the webcamera's image.
